@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+  <PropertyGroup>
+    <!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
+    <TargetFramework>$(TargetFramework)</TargetFramework>
+    <LangVersion>8</LangVersion>
+    <IsPackable>false</IsPackable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>../bin/Content.Shared</OutputPath>
+    <Configurations>Release;Debug</Configurations>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  <Import Project="..\RobustToolbox\MSBuild\Robust.DefineConstants.targets" />
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobustToolbox\Lidgren.Network\Lidgren.Network.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RobustToolbox\Robust.Shared.Maths\Robust.Shared.Maths.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
