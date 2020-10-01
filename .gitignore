@@ -1,0 +1,6 @@
+bin/
+obj/
+# annihilate apple
+.DS_Store
+# banish KDE
+.directory
