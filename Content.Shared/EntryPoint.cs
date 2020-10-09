@@ -19,7 +19,6 @@ namespace Content.Shared
 
         public override void PreInit()
         {
-            Console.WriteLine("BLUH");
             IoCManager.InjectDependencies(this);
             var textMacroFactory = IoCManager.Resolve<ITextMacroFactory>();
             textMacroFactory.DoAutoRegistrations();
