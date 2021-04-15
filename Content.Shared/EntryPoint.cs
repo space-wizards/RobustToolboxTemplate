@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
-using Robust.Shared.Localization.Macros;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared
 {
-    public class EntryPoint: GameShared
+    public class EntryPoint : GameShared
     {
         // See line 25. Controls the default game culture and language.
         // Robust calls this culture, but you might find it more fitting to call it the game
@@ -20,13 +16,11 @@ namespace Content.Shared
         public override void PreInit()
         {
             IoCManager.InjectDependencies(this);
-            var textMacroFactory = IoCManager.Resolve<ITextMacroFactory>();
-            textMacroFactory.DoAutoRegistrations();
 
             // Default to en-US.
             // DEVNOTE: If you want your game to be multiregional at runtime, you'll need to 
             // do something more complicated here.
-            Loc.LoadCulture(new CultureInfo(Culture));
+            IoCManager.Resolve<ILocalizationManager>().LoadCulture(new CultureInfo(Culture));
             // TODO: Document what else you might want to put here
         }
 
