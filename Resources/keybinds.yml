@@ -68,10 +68,6 @@ binds: # These are all the current engine keybinds.
 - function: ShowDebugConsole
   type: State
   key: Tilde
-- function: MouseMiddle
-  type: State
-  key: MouseMiddle
-  canFocus: true
 - function: TextCursorLeft
   type: State
   key: Left
@@ -183,13 +179,6 @@ binds: # These are all the current engine keybinds.
   type: State
   key: Delete
   canRepeat: true
-- function: TakeScreenshot
-  type: State
-  key: F2
-- function: TakeScreenshotNoUI
-  type: State
-  key: F2
-  mod1: Shift
 - function: GuiTabNavigateNext
   type: State
   key: Tab
