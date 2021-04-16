@@ -1,3 +1,4 @@
+using Robust.Client;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -30,15 +31,30 @@ namespace Content.Client
             IoCManager.BuildGraph();
 
             // DEVNOTE: This is generally where you'll be setting up the IoCManager further.
-
-            IoCManager.InjectDependencies(this);
         }
 
         public override void PostInit()
         {
             base.PostInit();
 
-            // DEVNOTE: Further setup, this is the spot you should start trying to connect to the server from.
+            // DEVNOTE: Further setup...
+            var client = IoCManager.Resolve<IBaseClient>();
+            
+            // DEVNOTE: You might want a main menu to connect to a server, or start a singleplayer game.
+            // Be sure to check out StateManager for this! Below you'll find examples to start a game.
+            
+            // If you want to connect to a server...
+            // client.ConnectToServer("ip-goes-here", 1212);
+            
+            // Optionally, singleplayer also works!
+            // client.StartSinglePlayer();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            
+            // DEVNOTE: You might want to do a proper shutdown here.
         }
 
         public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)

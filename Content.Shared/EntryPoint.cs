@@ -7,7 +7,9 @@ namespace Content.Shared
 {
     public class EntryPoint : GameShared
     {
-        // See line 25. Controls the default game culture and language.
+        // IoC services shared between the client and the server go here...
+        
+        // See line 23. Controls the default game culture and language.
         // Robust calls this culture, but you might find it more fitting to call it the game
         // language. Robust doesn't support changing this mid-game. Load your config file early
         // if you want that.
