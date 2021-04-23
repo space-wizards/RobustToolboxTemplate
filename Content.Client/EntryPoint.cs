@@ -5,6 +5,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
+// DEVNOTE: Games that want to be on the hub are FORCED use the "Content." prefix for assemblies they want to load.
 namespace Content.Client
 {
     public class EntryPoint : GameClient

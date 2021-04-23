@@ -3,6 +3,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 
+// DEVNOTE: Games that want to be on the hub are FORCED use the "Content." prefix for assemblies they want to load.
 namespace Content.Shared
 {
     public class EntryPoint : GameShared
