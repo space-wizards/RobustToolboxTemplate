@@ -8,7 +8,8 @@ namespace Content.Server
 {
     public class EntryPoint : GameServer
     {
-        public override void Init() {
+        public override void Init()
+        {
             base.Init();
 
             var factory = IoCManager.Resolve<IComponentFactory>();
