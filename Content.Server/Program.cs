@@ -10,7 +10,11 @@ namespace Content.Server
             
             /*
              // DEVNOTE: If you want to use RobustToolbox as a library, use the method below instead.
-            ContentStart.StartLibrary(args);
+            ContentStart.StartLibrary(args, new ServerOptions()
+            {
+                // DEVNOTE: Your options here.
+                Sandboxing = false,
+            });
             */
         }
     }
