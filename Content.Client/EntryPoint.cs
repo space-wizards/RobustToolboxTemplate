@@ -1,4 +1,5 @@
 using Robust.Client;
+using Robust.Client.Graphics;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -31,12 +32,17 @@ namespace Content.Client
 
             IoCManager.BuildGraph();
 
+            factory.GenerateNetIds();
+
             // DEVNOTE: This is generally where you'll be setting up the IoCManager further.
         }
 
         public override void PostInit()
         {
             base.PostInit();
+            
+            // DEVNOTE: The line below will disable lighting, so you can see in-game sprites without the need for lights
+            //IoCManager.Resolve<ILightManager>().Enabled = false;
 
             // DEVNOTE: Further setup...
             var client = IoCManager.Resolve<IBaseClient>();
