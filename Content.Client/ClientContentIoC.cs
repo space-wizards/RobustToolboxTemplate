@@ -1,12 +1,11 @@
 using Robust.Shared.IoC;
 
-namespace Content.Client
+namespace Content.Client;
+
+internal static class ClientContentIoC
 {
-    internal static class ClientContentIoC
+    public static void Register()
     {
-        public static void Register()
-        {
-            // DEVNOTE: IoCManager registrations for the client go here and only here.
-        }
+        // DEVNOTE: IoCManager registrations for the client go here and only here.
     }
 }
