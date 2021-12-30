@@ -1,3 +1,4 @@
+using Robust.Server.ServerStatus;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -12,6 +13,10 @@ public class EntryPoint : GameServer
     {
         base.Init();
 
+        // Configure ACZ correctly.
+        IoCManager.Resolve<IStatusHost>().SetAczInfo(
+            "Content.Client", new []{"Content.Client", "Content.Shared"});
+        
         var factory = IoCManager.Resolve<IComponentFactory>();
 
         factory.DoAutoRegistrations();
