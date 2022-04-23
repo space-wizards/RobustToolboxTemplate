@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
 namespace Content.Server;
 
-public class EntryPoint : GameServer
+public sealed class EntryPoint : GameServer
 {
     public override void Init()
     {

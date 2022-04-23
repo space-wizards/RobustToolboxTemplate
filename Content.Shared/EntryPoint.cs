@@ -6,7 +6,7 @@ using Robust.Shared.Localization;
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
 namespace Content.Shared;
 
-public class EntryPoint : GameShared
+public sealed class EntryPoint : GameShared
 {
     // IoC services shared between the client and the server go here...
         
