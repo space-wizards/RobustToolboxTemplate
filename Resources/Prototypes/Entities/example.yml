@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: ExampleEntity
+  name: example entity
+  description: example entity's description
+  components:
+    - type: Sprite
+      texture: /Textures/noSprite.png # Provided by the game engine.

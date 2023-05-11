@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Client.State;
@@ -9,6 +10,7 @@ using Robust.Shared.Timing;
 // DEVNOTE: Games that want to be on the hub can change their namespace prefix in the "manifest.yml" file.
 namespace Content.Client;
 
+[UsedImplicitly]
 public sealed class EntryPoint : GameClient
 {
     public override void Init()
