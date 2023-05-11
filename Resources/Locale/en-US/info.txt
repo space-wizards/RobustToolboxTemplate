@@ -1,0 +1,1 @@
+﻿Place Mozilla Fluent locale files here.
