@@ -47,13 +47,11 @@ public sealed class EntryPoint : GameClient
         var stateManager = IoCManager.Resolve<IStateManager>();
 
         // DEVNOTE: It's recommended to look at how this works! It's for debug purposes and you probably want something prettier for the final game.
+        // Additionally, state manager is the primary way you'll be changing between UIScreen instances.
         stateManager.RequestStateChange<DebugBuiltinConnectionScreenState>();
 
         // DEVNOTE: Further setup...
         //var client = IoCManager.Resolve<IBaseClient>();
-            
-        // DEVNOTE: You might want a main menu to connect to a server, or start a singleplayer game.
-        // Be sure to check out StateManager for this! Below you'll find examples to start a game.
 
         // Optionally, singleplayer also works!
         // client.StartSinglePlayer();
