@@ -13,4 +13,4 @@ It provides prediction-based server authoritative netcode by default, with optio
 
 Features like network visibility culling (called PVS by the engine) and replay recording are also provided by default, and client/server code is split to greatly reduce the odds that server specific information leaks over to the client due to programmer error.
 
-Additionally, RobustToolbox has fairly strong mod support, with ECS architecture encouraging code flexibility combined with engine level code sandboxing and mod loading. While a mod menu isn't a built-in feature of the engine at this time, automatically synchronizing assets to players on a per-server basis is, allowing for servers to modify your game's content fairly freely if utilized.
+Additionally, RobustToolbox has strong mod support, with ECS architecture encouraging code flexibility combined with engine level code sandboxing and mod loading. While a mod menu isn't a built-in feature of the engine at this time, automatically synchronizing assets to players on a per-server basis is, allowing for servers to modify your game's content fairly freely if utilized.
