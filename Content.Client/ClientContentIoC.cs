@@ -1,5 +1,3 @@
-using Robust.Shared.IoC;
-
 namespace Content.Client;
 
 internal static class ClientContentIoC

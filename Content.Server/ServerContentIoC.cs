@@ -1,5 +1,3 @@
-using Robust.Shared.IoC;
-
 namespace Content.Server;
 
 internal static class ServerContentIoC

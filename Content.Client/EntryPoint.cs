@@ -1,8 +1,5 @@
 using Robust.Client;
-using Robust.Client.Graphics;
 using Robust.Shared.ContentPack;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
