@@ -1,0 +1,10 @@
+﻿Relatively barebones packaging script. Does not contain a server packaging script.
+Packaging a (sandboxed) client is generally very easy, but the server is a bit more complex due to likely depending on assets unique to your project.
+Here's a few notes to help:
+- It's recommended to build specific to your target OS, especially if depending on natives (i.e. sqlite).
+- If using hybrid ACZ, you will need to include a client package in the server package's root directory for it to use.
+- RobustServerPackaging is your friend, but be aware it will specifically omit texture resources.
+- Familiarize yourself with AssetGraph and RobustServerAssetGraph, it allows for asset preprocessing, postprocessing of the final build, etc.
+- The default asset passes will automatically compute metadata for audio without actually including the audio files in the server build. This allows your server to know how long sound clips are.
+
+It is additionally recommended to properly configure StatusHost to use a custom provider. The default works, but cannot handle complex cases.

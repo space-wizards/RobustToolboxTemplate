@@ -3,6 +3,7 @@ using Robust.Packaging.AssetProcessing;
 
 namespace Content.Packaging;
 
+// Used both for manual packaging, and server-provided automatic packaging.
 public static class ContentPackaging
 {
     public static async Task WriteResources(
@@ -18,12 +19,12 @@ public static class ContentPackaging
 
         var inputPass = graph.Input;
 
-        await RobustClientPackaging.WriteContentAssemblies(
+        await RobustSharedPackaging.WriteContentAssemblies(
             inputPass,
             contentDir,
             "Content.Client",
             new[] { "Content.Client", "Content.Shared" },
-            cancel);
+            cancel: cancel);
 
         await RobustClientPackaging.WriteClientResources(contentDir, inputPass, cancel);
 

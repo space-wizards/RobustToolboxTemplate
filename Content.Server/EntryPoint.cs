@@ -12,10 +12,6 @@ public sealed class EntryPoint : GameServer
     public override void Init()
     {
         base.Init();
-
-        // Configure ACZ correctly.
-        IoCManager.Resolve<IStatusHost>().SetAczInfo(
-            "Content.Client", new []{"Content.Client", "Content.Shared"});
         
         var factory = IoCManager.Resolve<IComponentFactory>();
 

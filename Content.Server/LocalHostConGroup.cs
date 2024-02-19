@@ -1,7 +1,12 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using JetBrains.Annotations;
 using Robust.Server.Console;
 using Robust.Server.Player;
+using Robust.Shared.Player;
+using Robust.Shared.Toolshed;
+using Robust.Shared.Toolshed.Errors;
+using Robust.Shared.Utility;
 
 namespace Content.Server;
 
@@ -10,32 +15,32 @@ namespace Content.Server;
 /// </summary>
 [UsedImplicitly]
 public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPostInjectInit {
-    public bool CanCommand(IPlayerSession session, string cmdName) {
+    public bool CanCommand(ICommonSession session, string cmdName) {
         return IsLocal(session);
     }
 
-    public bool CanViewVar(IPlayerSession session) {
+    public bool CanViewVar(ICommonSession session) {
         return IsLocal(session);
     }
 
-    public bool CanAdminPlace(IPlayerSession session) {
+    public bool CanAdminPlace(ICommonSession session) {
         return IsLocal(session);
     }
 
-    public bool CanScript(IPlayerSession session) {
+    public bool CanScript(ICommonSession session) {
         return IsLocal(session);
     }
 
-    public bool CanAdminMenu(IPlayerSession session) {
+    public bool CanAdminMenu(ICommonSession session) {
         return IsLocal(session);
     }
 
-    public bool CanAdminReloadPrototypes(IPlayerSession session) {
+    public bool CanAdminReloadPrototypes(ICommonSession session) {
         return IsLocal(session);
     }
 
-    private static bool IsLocal(IPlayerSession player) {
-        var ep = player.ConnectedClient.RemoteEndPoint;
+    private static bool IsLocal(ICommonSession player) {
+        var ep = player.Channel.RemoteEndPoint;
         var addr = ep.Address;
         if (addr.IsIPv4MappedToIPv6) {
             addr = addr.MapToIPv4();
@@ -46,5 +51,31 @@ public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPost
 
     void IPostInjectInit.PostInject() {
         IoCManager.Resolve<IConGroupController>().Implementation = this;
+    }
+
+    private record NotLocalError : IConError
+    {
+        public FormattedMessage DescribeInner()
+        {
+            return FormattedMessage.FromUnformatted("Not the local user, refusing!");
+        }
+
+        public string Expression { get; set; }
+
+        public Vector2i? IssueSpan { get; set; }
+
+        public StackTrace Trace { get; set; }
+    }
+    
+    public bool CheckInvokable(CommandSpec command, ICommonSession user, out IConError error)
+    {
+        if (!IsLocal(user))
+        {
+            error = new NotLocalError();
+            return false;
+        }
+
+        error = null;
+        return true;
     }
 }
