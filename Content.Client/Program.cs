@@ -17,9 +17,9 @@ internal static class Program
         {
             // DEVNOTE: Your options here.
             Sandboxing = false,
-            SplashLogo = new ResourcePath("/path/to/splash/logo.png"),
+            SplashLogo = new ResPath("/path/to/splash/logo.png"),
             // Check "RobustToolbox/Resources/Textures/Logo/icon" for an example window icon set.
-            WindowIconSet = new ResourcePath("/path/to/folder/with/window/icon/set"),
+            WindowIconSet = new ResPath("/path/to/folder/with/window/icon/set"),
             DefaultWindowTitle = "Robust Template"
         });*/
     }
