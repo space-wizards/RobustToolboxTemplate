@@ -13,7 +13,7 @@ public sealed class EntryPoint : GameServer
     {
         base.Init();
         
-        var factory = IoCManager.Resolve<IComponentFactory>();
+        var factory = Dependencies.Resolve<IComponentFactory>();
 
         factory.DoAutoRegistrations();
 
@@ -22,7 +22,7 @@ public sealed class EntryPoint : GameServer
             factory.RegisterIgnore(ignoreName);
         }
 
-        ServerContentIoC.Register();
+        ServerContentIoC.Register(Dependencies);
 
         IoCManager.BuildGraph();
             

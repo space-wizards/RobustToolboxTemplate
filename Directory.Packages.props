@@ -1,0 +1,6 @@
+﻿<Project>
+  <Import Project="RobustToolbox/Directory.Packages.props" />
+  <ItemGroup>
+      <!-- Put versions for any additional NuGet packages you might want to use here. -->
+  </ItemGroup>
+</Project>

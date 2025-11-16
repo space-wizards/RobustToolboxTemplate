@@ -18,12 +18,12 @@ public sealed class EntryPoint : GameShared
 
     public override void PreInit()
     {
-        IoCManager.InjectDependencies(this);
+        Dependencies.InjectDependencies(this);
 
         // Default to en-US.
         // DEVNOTE: If you want your game to be multiregional at runtime, you'll need to 
         // do something more complicated here.
-        IoCManager.Resolve<ILocalizationManager>().LoadCulture(new CultureInfo(Culture));
+        Dependencies.Resolve<ILocalizationManager>().LoadCulture(new CultureInfo(Culture));
         // TODO: Document what else you might want to put here
     }
 

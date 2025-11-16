@@ -2,7 +2,6 @@
 using System.Net;
 using JetBrains.Annotations;
 using Robust.Server.Console;
-using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;
@@ -14,7 +13,10 @@ namespace Content.Server;
 ///     Debug/example ConGroup controller implementation that gives any client connected through localhost every permission.
 /// </summary>
 [UsedImplicitly]
-public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPostInjectInit {
+public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPostInjectInit
+{
+    [Dependency] private readonly IConGroupController _controller = null!;
+
     public bool CanCommand(ICommonSession session, string cmdName) {
         return IsLocal(session);
     }
@@ -50,7 +52,7 @@ public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPost
     }
 
     void IPostInjectInit.PostInject() {
-        IoCManager.Resolve<IConGroupController>().Implementation = this;
+        _controller.Implementation = this;
     }
 
     private record NotLocalError : IConError

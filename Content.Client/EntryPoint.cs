@@ -15,8 +15,8 @@ public sealed class EntryPoint : GameClient
 {
     public override void Init()
     {
-        var factory = IoCManager.Resolve<IComponentFactory>();
-        var prototypes = IoCManager.Resolve<IPrototypeManager>();
+        var factory = Dependencies.Resolve<IComponentFactory>();
+        var prototypes = Dependencies.Resolve<IPrototypeManager>();
 
         factory.DoAutoRegistrations();
 
@@ -44,9 +44,9 @@ public sealed class EntryPoint : GameClient
         base.PostInit();
             
         // DEVNOTE: The line below will disable lighting, so you can see in-game sprites without the need for lights
-        IoCManager.Resolve<ILightManager>().Enabled = false;
+        Dependencies.Resolve<ILightManager>().Enabled = false;
 
-        var stateManager = IoCManager.Resolve<IStateManager>();
+        var stateManager = Dependencies.Resolve<IStateManager>();
 
         // DEVNOTE: It's recommended to look at how this works! It's for debug purposes and you probably want something prettier for the final game.
         // Additionally, state manager is the primary way you'll be changing between UIScreen instances.
