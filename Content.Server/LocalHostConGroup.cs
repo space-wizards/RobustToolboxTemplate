@@ -13,9 +13,9 @@ namespace Content.Server;
 ///     Debug/example ConGroup controller implementation that gives any client connected through localhost every permission.
 /// </summary>
 [UsedImplicitly]
-public sealed class LocalHostConGroup : IConGroupControllerImplementation, IPostInjectInit
+public sealed partial class LocalHostConGroup : IConGroupControllerImplementation, IPostInjectInit
 {
-    [Dependency] private readonly IConGroupController _controller = null!;
+    [Dependency] private IConGroupController _controller = null!;
 
     public bool CanCommand(ICommonSession session, string cmdName) {
         return IsLocal(session);

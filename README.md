@@ -7,7 +7,7 @@ This template additionally includes some helpful IDE settings if you're using Vi
 An example file structure for Resources is also provided.
 
 ### Wait, why would I use RobustToolbox? 
-RobustToolbox is a fairly modern ECS game engine with strong multiplayer support. Out of the box, it's netcode is capable of handling hundreds of players (as demonstrated by the game it was originally written for, [Space Station 14](https://spacestation14.io/)) and is relatively easy to use with less risk of common mistakes like giving clients authority over game state compared to other engines.
+RobustToolbox is a fairly modern ECS game engine with strong multiplayer support. Out of the box, its netcode is capable of handling hundreds of players (as demonstrated by the game it was originally written for, [Space Station 14](https://spacestation14.io/)) and is relatively easy to use with less risk of common mistakes like giving clients authority over game state compared to other engines.
 
 It provides prediction-based server authoritative netcode by default, with options to both autogenerate simple state synchronization for components and to manually implement more complex state application algorithms as necessary. Additionally, basic RPC is provided through networked entity events (which can be sent both ways, and optionally targeted at specific entities) alongside direct access to the underlying transit layer for more direct control when necessary.
 
